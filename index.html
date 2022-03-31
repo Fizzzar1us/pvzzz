@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style type="text/css">
+		.button {
+			position: absolute;
+			left: 530px;
+			top: 30px;
+		}
+		.button2 {
+			position: absolute;
+			left: 330px;
+			top: 30px;
+		}
+		.sunflower {
+			position: absolute;
+			width: 80px;
+			display: none;
+
+		}
+		.shooter {
+			width: 80px; 
+			position: absolute; 	
+		}
+		.box {
+			background-image: url(game.png);
+			height: 1000px; 
+			background-size: 100% 100%;
+		}
+		.zombies {
+			width: 80px; 
+			position: absolute;
+			transition: 2s;
+		}
+	</style>
+</head>
+<body>	
+	
+	<div class="box" style="">
+		<h5 style="position: absolute; left: 870px; top: 30px;">score</h5>
+		<h5 style="position: absolute; left: 900px; top: 50px;" class="score"></h5>
+
+		<button class="btn btn-success button">Увеличить горох</button>
+    	<button class="btn btn-success button2">Посадить цветок</button>
+
+		<!--ГОРОХИ-->
+	    <img class="shooter" src="peashooter.png"  style="top: 250px;left: 650px; ">		
+		<img class="shooter" src="peashooter.png"  style="top: 350px;left: 650px; ">	
+		<img class="shooter" src="peashooter.png"  style="top: 450px;left: 650px; ">	
+		<img class="shooter" src="peashooter.png"  style="top: 550px;left: 650px; ">
+		<img class="shooter" src="peashooter.png"  style="top: 650px;left: 650px; ">
+		<img class="shooter" src="peashooter.png"  style="top: 750px;left: 650px; ">
+
+
+		<img class="sunflower" src="sunflower.png"  style="top: 240px; left: 780px;">
+		<img class="sunflower" src="sunflower.png"  style="top: 340px; left: 780px;">
+		<img class="sunflower" src="sunflower.png"  style="top: 440px; left: 780px;">
+		<img class="sunflower" src="sunflower.png"  style="top: 540px; left: 780px;">
+		<img class="sunflower" src="sunflower.png"  style="top: 630px; left: 780px;">
+		<img class="sunflower" src="sunflower.png"  style="top: 740px; left: 780px;">
+
+		<!--ЗОМБИ-->
+		<img class="zombies" src="zombie1.png" style="top: 220px; left: 1600px;">
+		<img class="zombies" src="zombie2.png" style="top: 320px; left: 1600px;">
+		<img class="zombies" src="zombie2.png" style="top: 420px; left: 1600px;">
+		<img class="zombies" src="zombie4.png" style="top: 520px; left: 1600px;">
+		<img class="zombies" src="zombie4.png" style="top: 620px; left: 1600px;">
+		<img class="zombies" src="zombie4.png" style="top: 720px; left: 1600px;">
+	</div>
+<script>
+	let score = 0
+	document.querySelector(".score").innerHTML = score
+	let step1 = 1600
+	let step2 = 1600
+	let step3 = 1600
+	let step4 = 1600
+	let step5 = 1600
+	let step6 = 1600
+	let button = document.querySelector('.button');
+		// let peas = document.querySelectorAll('.peas');
+	let zombies = document.querySelectorAll(".zombies");
+	let shooter = document.querySelectorAll(".shooter");
+	let gorohLeft = 400
+	let sunflowerLeft = 600
+	button.onclick = function(){
+			for(let i = 0; i < 6; i++) {	
+			shooter[i].src = "peashooter2.png"
+		}
+	}
+	
+	zombies[0].onclick = function(){
+		step1 = step1 - 200
+		zombies[0].style.left = step1 + "px"
+		if(step1 == gorohLeft){
+			alert("сьеден")
+			shooter[0].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			if(score == 12){
+				alert("победа")
+			}
+		}
+		if(step1 == sunflowerLeft){
+			alert("сьеден")
+			sunflower[0].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			
+		}
+	
+	}
+		
+	zombies[1].onclick = function(){
+		step2 = step2 - 200
+		zombies[1].style.left = step2 + "px"
+		if(step2 == gorohLeft){
+			alert("сьеден")
+			shooter[1].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			if(score == 12){
+				alert("победа")
+			}
+		}
+		if(step2 == sunflowerLeft){
+			alert("сьеден")
+			sunflower[1].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			
+		}
+	}
+	zombies[2].onclick = function(){
+		step3 = step3 - 200
+		zombies[2].style.left = step3 + "px"
+		if(step3 == gorohLeft){
+			alert("сьеден")
+			shooter[2].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			if(score == 12){
+				alert("победа")
+			}
+
+		}
+		if(step3 == sunflowerLeft){
+			alert("сьеден")
+			sunflower[2].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+					}
+	}
+	zombies[3].onclick = function(){
+		step4 = step4 - 200
+		zombies[3].style.left = step4 + "px"
+		if(step4 == gorohLeft){
+			alert("сьеден")
+			shooter[3].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			if(score == 12){
+				alert("победа")
+			}
+		}
+		if(step4 == sunflowerLeft){
+			alert("сьеден")
+			sunflower[3].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			
+		}
+	}
+	zombies[4].onclick = function(){
+		step5 = step5 - 200
+		zombies[4].style.left = step5 + "px"
+		if(step5 == gorohLeft){
+			alert("сьеден")
+			shooter[4].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			if(score == 12){
+				alert("победа")
+			}
+		}
+		if(step5 == sunflowerLeft){
+			alert("сьеден")
+			sunflower[4].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			
+		}
+	}
+	zombies[5].onclick = function(){
+		step6 = step6 - 200
+		zombies[5].style.left = step6 + "px"
+		if(step6 == gorohLeft){
+			alert("сьеден")
+			shooter[5].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			if(score == 12){
+				alert("победа")
+			}
+		}
+		if(step6 == sunflowerLeft){
+			alert("сьеден")
+			sunflower[5].style.display = "none"
+			score = score + 1
+			document.querySelector(".score").innerHTML = score
+			
+		}
+	}
+	let button2 = document.querySelector('.button2')
+		let sunflower = document.querySelectorAll('.sunflower')
+		button2.onclick = function(){
+			for(let i = 0; i < 6; i++) {
+				sunflower[i].style.display = 'block';
+			}
+		}
+		
+
+
+</script>
+</body>
+</html>
